@@ -39,9 +39,11 @@ export class NgEmojiScoreComponent implements OnInit {
 
       for (let i = 0; i < this.scores.length; i++) {
         Object.keys(this.scores[i]).forEach((key) => {
-          const emojiIndex = this.defaultEmojiItems.findIndex(x => x.label === key);
+          console.log(key);
+          const emojiIndex = this.defaultEmojiItems.findIndex(x => x.label === this.scores[i][key]);
           if (emojiIndex !== -1) {
-            this.defaultEmojiItems[emojiIndex]['score'] = this.scores[i][key];
+            this.defaultEmojiItems[emojiIndex]['score'] = this.scores[i]['value'];
+            this.defaultEmojiItems[emojiIndex]['selected'] = this.scores[i]['selected'];
           }
         });
       }

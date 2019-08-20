@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ];
   scores = [
     { label: 'cokIyi', value: 30, selected: false },
-    { label: 'yerim', value: 49, selected: false },
+    { label: 'yerim', value: 49, selected: true },
     { label: 'yokArtik', value: 14, selected: true },
     { label: 'hosDegil', value: 49, selected: false },
     { label: 'kizgin', value: 14, selected: false },
