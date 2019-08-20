@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-emoji-score": [
+        "dist/ng-emoji-score"
+      ],
+      "ng-emoji-score/*": [
+        "dist/ng-emoji-score/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -1,0 +1,64 @@
+.emoji-score-container {
+  .emoji-list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+    .emoji-item {
+      text-align: center;
+      margin: 0 3px;
+      .score {
+        display: block;
+        font-size: 14px;
+        padding: 3px;
+      }
+      .score-bg {
+        background-color: #8ce0b6;
+        -webkit-transition: .3s all;
+        -moz-transition: .3s all;
+        -ms-transition: .3s all;
+        -o-transition: .3s all;
+        transition: .3s all;
+      }
+      .emoji {
+        background-color: #ececec;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        -webkit-transition: .3s all;
+        -moz-transition: .3s all;
+        -ms-transition: .3s all;
+        -o-transition: .3s all;
+        transition: .3s all;
+        .emoji-icon {
+          height: 46px;
+          max-width: 100%;
+        }
+        &:hover {
+          box-shadow: 0 3px 0px 0px rgba(0, 0, 0, 0.2), 0 6px 10px 0px rgba(0, 0, 0, 0.14), 0 1px 5px 0px rgba(0, 0, 0, 0.12);
+        }
+      }
+      &.selected {
+        .score-bg {
+          background-color: #2cd07e;
+        }
+        .emoji {
+          box-shadow: 0 3px 0px 0px rgba(0, 0, 0, 0.5), 0 6px 10px 0px rgba(0, 0, 0, 0.14), 0 1px 5px 0px rgba(0, 0, 0, 0.12);
+        }
+      }
+    }
+  }
+}
+
+.scores-error {
+  color: #e6294b!important;
+  text-align: center!important;
+  font-weight: bold!important;
+}
+.warning {
+  color: #e6294b;
+}

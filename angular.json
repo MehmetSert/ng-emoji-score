@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "ng-emoji-score": {
+      "projectType": "library",
+      "root": "projects/ng-emoji-score",
+      "sourceRoot": "projects/ng-emoji-score/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-emoji-score/tsconfig.lib.json",
+            "project": "projects/ng-emoji-score/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-emoji-score/src/test.ts",
+            "tsConfig": "projects/ng-emoji-score/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-emoji-score/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-emoji-score/tsconfig.lib.json",
+              "projects/ng-emoji-score/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ng-emoji-score-demo"
 }

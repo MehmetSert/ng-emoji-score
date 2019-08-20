@@ -1,0 +1,23 @@
+<div class="emoji-score-container" *ngIf="!scoresError; else scoreError">
+  <ul class="emoji-list">
+    <ng-container *ngFor="let emoji of defaultEmojiItems">
+      <li class="emoji-item" [class.selected]="emoji.selected" (click)="selectEmoji(emoji)">
+        <span class="score">{{ emoji.score }}</span>
+        <div class="score-bg" *ngIf="emoji.scorePercent" [style.height]="emoji.scorePercent + 'px'"></div>
+        <div class="emoji">
+          <img class="emoji-icon" [src]="emoji.icon" [alt]="emoji.name">
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+  <p class="warning" *ngIf="selectableLimitWarning">{{ selectableLimitMessage }}</p>
+</div>
+<ng-template #scoreError>
+  <div class="scores-error">
+    <p>NgEmojiScore Error!</p>
+    <p>[scores] is required.</p>
+    <p>Example: <![CDATA[<app-ng-emoji-score
+      [scores]="scores"
+      (emojiSelect)="selectEmoji($event)"></app-ng-emoji-score>]]></p>
+  </div>
+</ng-template>
