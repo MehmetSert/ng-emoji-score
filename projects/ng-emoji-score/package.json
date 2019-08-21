@@ -1,6 +1,22 @@
 {
   "name": "ng-emoji-score",
   "version": "1.0.0",
+  "description": "An enjoyable package for your readers to explain their reactions with emojis.",
+  "author": "Mehmet Sert",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MehmetSert/ng-emoji-score.git"
+  },
+  "homepage": "https://github.com/MehmetSert/ng-emoji-score",
+  "keywords": [
+    "angular",
+    "angular 2",
+    "angular 8",
+    "angular emoji score",
+    "angular emoji ranking",
+    "angular ranking"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.1.3",
     "@angular/core": "^8.1.3"

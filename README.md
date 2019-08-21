@@ -2,7 +2,7 @@
   <img height="200px" width="200px" style="text-align: center;" src="https://www.mehmetsert.com.tr/assets/img/ng-emoji-score.png">
   <h1 align="center">Angular Emoji Score</h1>
 </p>
-<p align="center">Yazılarınızı okuyanların tepkilerini emojilerle almak isteyenler için keyifli bir paket.</p>
+<p align="center">Yazılarınızı okuyanların, tepkilerini emojilerle anlatmaları için keyifli bir paket.</p>
 
 ------------
 
