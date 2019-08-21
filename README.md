@@ -1,17 +1,15 @@
 <p align="center">
   <img height="200px" width="200px" style="text-align: center;" src="https://www.mehmetsert.com.tr/assets/img/ng-emoji-score.png">
   <h1 align="center">Angular Emoji Score</h1>
+  Yazılarınızı okuyanların tepkilerini emojilerle almak isteyenler için keyifli bir paket.
 </p>
-Yazılarınızı okuyanların tepkilerini emojilerle almak isteyenler için keyifli bir paket.
 
 <br>
 
-#### Demo
-------------
+## Demo
 Canlı demo için [buraya tıklayın](https://mehmetsert.com.tr "buraya tıklayın").
 
-#### Kurulum
-------------
+## Kurulum
 Paketi yüklemek için npm'i kullanabilirsiniz.
 
 ###### NPM
@@ -19,8 +17,7 @@ Paketi yüklemek için npm'i kullanabilirsiniz.
 npm install --save ng-emoji-score
 ```
 
-#### Kullanım
-------------
+## Kullanım
 Projenize ng-emoji-score paketini eklemek için aşağıdaki adımları izleyin.
 
 **1.  NgEmojiScoreModule'yi import edin.**
