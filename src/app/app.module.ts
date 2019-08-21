@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+/* Import the module */
 import {NgEmojiScoreModule} from '../../projects/ng-emoji-score/src/lib/ng-emoji-score.module';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,7 @@ import {NgEmojiScoreModule} from '../../projects/ng-emoji-score/src/lib/ng-emoji
   ],
   imports: [
     BrowserModule,
-    NgEmojiScoreModule
+    NgEmojiScoreModule // Import here
   ],
   providers: [],
   bootstrap: [AppComponent]

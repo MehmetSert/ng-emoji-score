@@ -1,3 +1,7 @@
 <emoji-score
+  [customEmojiItems]="emojis"
   [scores]="scores"
+  [selectableEmojiCount]="4"
+  [selectableLimitMessage]="'En fazla 4 emoji seçebilirsiniz.'"
+  [customClass]="'custom-emoji-score'"
   (emojiSelect)="selectEmoji($event)"></emoji-score>

@@ -1,27 +1,128 @@
-# NgEmojiScoreDemo
+<center>
+![ngEmojiScore - Mehmet Sert](https://www.mehmetsert.com.tr/assets/img/ng-emoji-score.png "ngEmojiScore - Mehmet Sert")
+<h1>Angular Emoji Score</h1>Yazılarınızı okuyanların tepkilerini emojilerle almak isteyenler için keyifli bir paket.
+</center>
+<br>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+#### Demo
+------------
+Canlı demo için [buraya tıklayın](https://mehmetsert.com.tr "buraya tıklayın").
 
-## Development server
+#### Kurulum
+------------
+Paketi yüklemek için npm'i kullanabilirsiniz.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+###### NPM
+```
+npm install --save ng-emoji-score
+```
 
-## Code scaffolding
+#### Kullanım
+------------
+Projenize ng-emoji-score paketini eklemek için aşağıdaki adımları izleyin.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**1.  NgEmojiScoreModule'yi import edin.**
+NgEmojiScoreModule'yi uygulamanızda kullanmak istediğiniz modülde içe aktarın.
+```javascript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-## Build
+/* Import the module */
+import {NgEmojiScoreModule} from '../../projects/ng-emoji-score/src/lib/ng-emoji-score.module';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+import { AppComponent } from './app.component';
 
-## Running unit tests
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgEmojiScoreModule // Import here
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
+**2.  HTML içinde kullanın**
+HTML'inizde: Projenizin kullanmak istediğiniz yerinde `<emoji-score>` etiketini kullanın.
+```html
+<emoji-score
+  	[customEmojiItems]="emojis"
+  	[scores]="scores"
+  	[selectableEmojiCount]="4"
+  	[selectableLimitMessage]="'En fazla 4 emoji seçebilirsiniz.'"
+  	[customClass]="'custom-emoji-score'"
+  	(emojiSelect)="selectEmoji($event)"></emoji-score>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+**3.  Emojileri görüntülemek için dizinin yapısı**
+Dizinin yapısının aşağıda gösterilen diziye benzediğinden emin olun;
+-- Ayrıca Emoji modelini dahil ettiğinizden emin olun.
+```json
+  emojis: Emoji[] = [
+    {
+      name: 'Çok iyi',
+      label: 'cokIyi',
+      icon: 'https://srv-cdn.onedio.com/store/7213a0b115f88320a222b14c5daa3596729b9ec93f710da3d2f8b5a6004e9aba.gif'
+    },
+    {
+      name: 'Yerim',
+      label: 'yerim',
+      icon: 'https://srv-cdn.onedio.com/store/61333d24ca3819629e766cd21fa68c38d73deff54d0003e1107b46884d431b44.gif'
+    },
+    {
+      name: 'Yok artık',
+      label: 'yokArtik',
+      icon: 'https://srv-cdn.onedio.com/store/1ab646d43efac881b74c9a41fa443ad7d97cdf5ad591a5f14b4178702464eeaa.gif'
+    },
+    {
+      name: 'Hoş değil',
+      label: 'hosDegil',
+      icon: 'https://srv-cdn.onedio.com/store/9c889ddd1664e0e9e8fc1c93e8316503acd7c5c94cd4cdab3d3161f4e3a227f1.gif'
+    },
+    {
+      name: 'Kızgın',
+      label: 'kizgin',
+      icon: 'https://srv-cdn.onedio.com/store/afa6da55313299c3cd21249bc1c596c5f6fc04de4152c1543c63a648353b99c1.gif'
+    },
+  ];
+```
 
-## Further help
+**4.  Skorları görüntülemek için dizinin yapısı**
+Dizinin yapısının aşağıda gösterilen diziye benzediğinden emin olun;
+-- Ayrıca Score modelini dahil ettiğinizden emin olun.
+```json
+ scores: Score[] = [
+    { label: 'cokIyi', value: 30, selected: false },
+    { label: 'yerim', value: 49, selected: true },
+    { label: 'yokArtik', value: 14, selected: true },
+    { label: 'hosDegil', value: 49, selected: false },
+    { label: 'kizgin', value: 14, selected: false }
+  ];
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Özellikler
+| İsim | Tip | Zorunlu | Varsayılan | Açıklama |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| customEmojiItems | Emoji  | Hayır | - | Kendi emojilerinizi oluşturmanız içindir. |
+| scores | Score | **Evet**  | - | Yazıya daha önceden verilen skorlardır. |
+| selectableEmojiCount | number  | Hayır | 3 | En fazla seçilebilir emoji sayısıdır. |
+| selectableLimitMessage | string  | Hayır | You can select up to {{selectableEmojiCount}} emoji. | selectableEmojiCount değerinden fazla emoji seçilmek istendiğinde ekranda çıkacak olan uyarı mesajıdır. |
+| customClass | string  | Hayır | - | Kendi stil class'ınızı vermenize yarar. |
+
+## Olaylar
+| İsim | Parametreler | Description |
+| ------------ | ------------ | ------------ | 
+| emojiSelect | $event | Emoji seçildiği zaman çalışacak olan methodu belirtmek için. |
+
+## Paylaşan
+[Mehmet Sert](https://mehmetsert.com.tr "Mehmet Sert")
+- [Github/MehmetSert](https://github.com/MehmetSert "Github/MehmetSert")
+- [Linkedin/mehmet-sert](https://www.linkedin.com/in/mehmet-sert/ "Linkedin/mehmet-sert")
+- [Twitter/mehmetsert_11](https://twitter.com/mehmetsert_11 "Twitter/mehmetsert_11")
+- [Instagram/mehmetsert_11](https://www.instagram.com/mehmetsert_11/ "Instagram/mehmetsert_11")
+- [Kodumunblogu/mehmet-sert-11](https://kodumunblogu.net/auth/mehmet-sert-11 "Kodumunblogu/mehmet-sert-11")

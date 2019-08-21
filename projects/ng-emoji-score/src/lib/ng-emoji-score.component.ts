@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgEmojiScoreService} from './ng-emoji-score.service';
+import {Emoji} from './emoji.model';
+import {Score} from './score.model';
 
 @Component({
   selector: 'emoji-score',
@@ -8,10 +10,11 @@ import {NgEmojiScoreService} from './ng-emoji-score.service';
 })
 export class NgEmojiScoreComponent implements OnInit {
 
-  @Input() emojiItems: any;
-  @Input() scores: any;
+  @Input() customEmojiItems: Emoji[];
+  @Input() scores: Score[];
   @Input() selectableEmojiCount: number;
   @Input() selectableLimitMessage: string;
+  @Input() customClass: string;
   @Output() emojiSelect = new EventEmitter();
 
   defaultEmojiItems = [];
@@ -25,11 +28,11 @@ export class NgEmojiScoreComponent implements OnInit {
   ngOnInit() {
     this.setEmojiItems();
     this.selectableEmojiCount = this.selectableEmojiCount || 3;
-    this.selectableLimitMessage = this.selectableLimitMessage || 'En fazla ' + this.selectableEmojiCount + ' tepki verebilirsiniz.';
+    this.selectableLimitMessage = this.selectableLimitMessage || 'You can select up to ' + this.selectableEmojiCount + ' emoji.';
   }
 
   setEmojiItems() {
-    this.defaultEmojiItems = this.emojiItems || this.emojiService.defaultEmojiItems;
+    this.defaultEmojiItems = this.customEmojiItems || this.emojiService.defaultEmojiItems;
     this.setScores();
   }
 
@@ -39,11 +42,13 @@ export class NgEmojiScoreComponent implements OnInit {
 
       for (let i = 0; i < this.scores.length; i++) {
         Object.keys(this.scores[i]).forEach((key) => {
-          console.log(key);
           const emojiIndex = this.defaultEmojiItems.findIndex(x => x.label === this.scores[i][key]);
           if (emojiIndex !== -1) {
             this.defaultEmojiItems[emojiIndex]['score'] = this.scores[i]['value'];
             this.defaultEmojiItems[emojiIndex]['selected'] = this.scores[i]['selected'];
+            if (this.scores[i]['selected']) {
+              this.emojiService.selectedItems.push(this.defaultEmojiItems[emojiIndex]);
+            }
           }
         });
       }
@@ -58,7 +63,7 @@ export class NgEmojiScoreComponent implements OnInit {
     }
   }
 
-  selectEmoji(selectedItem) {
+  selectEmoji(selectedItem: Emoji) {
     const emojiIndex = this.emojiService.selectedItems.indexOf(selectedItem);
     if (emojiIndex === -1) {
       if (this.emojiService.selectedItems.length < this.selectableEmojiCount) {
