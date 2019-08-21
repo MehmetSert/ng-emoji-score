@@ -27,7 +27,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 /* Import the module */
-import {NgEmojiScoreModule} from '../../projects/ng-emoji-score/src/lib/ng-emoji-score.module';
+import {NgEmojiScoreModule} from 'ng-emoji-score';
 
 import { AppComponent } from './app.component';
 
@@ -60,40 +60,40 @@ HTML'inizde: Projenizin kullanmak istediğiniz yerinde `<emoji-score>` etiketini
 
 **3.  Emojileri görüntülemek için dizinin yapısı**
 Dizinin yapısının aşağıda gösterilen diziye benzediğinden emin olun;
--- Ayrıca Emoji modelini dahil ettiğinizden emin olun.
+-- Ayrıca Emoji modelini dahil ettiğinizden emin olun. `import {Emoji} from 'ng-emoji-score/lib/emoji.model';`
 ```json
   emojis: Emoji[] = [
     {
       "name": "Çok iyi",
       "label": "cokIyi",
-      "icon": "https://srv-cdn.onedio.com/store/7213a0b115f88320a222b14c5daa3596729b9ec93f710da3d2f8b5a6004e9aba.gif"
+      "icon": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/emojione/211/face-with-tears-of-joy_1f602.png"
     },
     {
       "name": "Yerim",
       "label": "yerim",
-      "icon": "https://srv-cdn.onedio.com/store/61333d24ca3819629e766cd21fa68c38d73deff54d0003e1107b46884d431b44.gif"
+      "icon": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/emojione/211/smiling-face-with-heart-shaped-eyes_1f60d.png"
     },
     {
       "name": "Yok artık",
       "label": "yokArtik",
-      "icon": "https://srv-cdn.onedio.com/store/1ab646d43efac881b74c9a41fa443ad7d97cdf5ad591a5f14b4178702464eeaa.gif"
+      "icon": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/emojione/211/face-screaming-in-fear_1f631.png"
     },
     {
       "name": "Hoş değil",
       "label": "hosDegil",
-      "icon": "https://srv-cdn.onedio.com/store/9c889ddd1664e0e9e8fc1c93e8316503acd7c5c94cd4cdab3d3161f4e3a227f1.gif"
+      "icon": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/emojione/211/thumbs-down-sign_1f44e.png"
     },
     {
       "name": "Kızgın",
       "label": "kizgin",
-      "icon": "https://srv-cdn.onedio.com/store/afa6da55313299c3cd21249bc1c596c5f6fc04de4152c1543c63a648353b99c1.gif"
+      "icon": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/emojione/211/face-with-look-of-triumph_1f624.png"
     },
   ];
 ```
 
 **4.  Skorları görüntülemek için dizinin yapısı**
 Dizinin yapısının aşağıda gösterilen diziye benzediğinden emin olun;
--- Ayrıca Score modelini dahil ettiğinizden emin olun.
+-- Ayrıca Score modelini dahil ettiğinizden emin olun. `import {Score} from 'ng-emoji-score/lib/score.model';`
 ```json
  scores: Score[] = [
     { "label": "cokIyi", "value": 30, "selected": false },
