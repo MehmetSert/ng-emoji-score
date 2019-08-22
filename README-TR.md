@@ -2,26 +2,26 @@
   <img height="200px" width="200px" style="text-align: center;" src="https://www.mehmetsert.com.tr/assets/img/ng-emoji-score.png">
   <h1 align="center">Angular Emoji Score</h1>
 </p>
-<p align="center">An enjoyable package for your readers to explain their reactions with emojis.</p>
+<p align="center">Yazılarınızı okuyanların, tepkilerini emojilerle anlatmaları için keyifli bir paket.</p>
 
 ------------
 
 ## Demo
-[Click here](https://stackblitz.com/edit/ng-emoji-score?file=src%2Fapp%2Femoji%2Femoji.component.html "Click here") for a live demo.
+Canlı demo için [buraya tıklayın](https://stackblitz.com/edit/ng-emoji-score?file=src%2Fapp%2Femoji%2Femoji.component.html "buraya tıklayın").
 
-## Installation
-You can use npm to install the package.
+## Kurulum
+Paketi yüklemek için npm'i kullanabilirsiniz.
 
 ###### NPM
 ```
 npm install --save ng-emoji-score
 ```
 
-## Use
-Follow the steps below to add the ng-emoji-score package to your project.
+## Kullanım
+Projenize ng-emoji-score paketini eklemek için aşağıdaki adımları izleyin.
 
-**1.  Import NgEmojiScoreModule**
-Import NgEmojiScoreModule in the module you want to use in your application.
+**1.  NgEmojiScoreModule'yi import edin.**
+NgEmojiScoreModule'yi uygulamanızda kullanmak istediğiniz modülde içe aktarın.
 ```javascript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -46,21 +46,21 @@ export class AppModule { }
 
 ```
 
-**2.  Use within HTML**
-In your HTML: Use the `<emoji-score>` tag where you want to use your project.
+**2.  HTML içinde kullanın**
+HTML'inizde: Projenizin kullanmak istediğiniz yerinde `<emoji-score>` etiketini kullanın.
 ```html
 <emoji-score
   	[customEmojiItems]="emojis"
   	[scores]="scores"
   	[selectableEmojiCount]="4"
-  	[selectableLimitMessage]="'You can select up to 4 emoji.'"
+  	[selectableLimitMessage]="'En fazla 4 emoji seçebilirsiniz.'"
   	[customClass]="'custom-emoji-score'"
   	(emojiSelect)="selectEmoji($event)"></emoji-score>
 ```
 
-**3.  Structure of the array to display emojis**
-Make sure the structure of the array resembles the array shown below;
--- Also be sure to include the Emoji model. `import {Emoji} from 'ng-emoji-score/lib/emoji.model';`
+**3.  Emojileri görüntülemek için dizinin yapısı**
+Dizinin yapısının aşağıda gösterilen diziye benzediğinden emin olun;
+-- Ayrıca Emoji modelini dahil ettiğinizden emin olun. `import {Emoji} from 'ng-emoji-score/lib/emoji.model';`
 ```json
   emojis: Emoji[] = [
     {
@@ -91,9 +91,9 @@ Make sure the structure of the array resembles the array shown below;
   ];
 ```
 
-**4.  Structure of the index to display scores**
-Make sure the structure of the array resembles the array shown below;
--- Also make sure to include the Score model. `import {Score} from 'ng-emoji-score/lib/score.model';`
+**4.  Skorları görüntülemek için dizinin yapısı**
+Dizinin yapısının aşağıda gösterilen diziye benzediğinden emin olun;
+-- Ayrıca Score modelini dahil ettiğinizden emin olun. `import {Score} from 'ng-emoji-score/lib/score.model';`
 ```json
  scores: Score[] = [
     { "label": "cokIyi", "value": 30, "selected": false },
@@ -104,29 +104,29 @@ Make sure the structure of the array resembles the array shown below;
   ];
 ```
 
-**5.  Method that will work when emoji is selected**
-In your Typescript file;
+**5.  Emoji seçildiğinde çalışacak method**
+Typescript dosyanızda;
 ```
   selectEmoji(event) {
     console.log(event);
   }
 ```
 
-## Features
-| Name | Type | Required | Default | Description |
+## Özellikler
+| İsim | Tip | Zorunlu | Varsayılan | Açıklama |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| customEmojiItems | Emoji  | No | - | For creating your own emojis. |
-| scores | Score | **Yes**  | - | Scores previously given to the article. |
-| selectableEmojiCount | number  | No | 3 | The maximum number of selectable emoji. |
-| selectableLimitMessage | string  | No | You can select up to {{selectableEmojiCount}} emoji. | If you want to select more emoji than "selectableEmojiCount", this message will be displayed. |
-| customClass | string  | No | - | It allows you to give your own style class. |
+| customEmojiItems | Emoji  | Hayır | - | Kendi emojilerinizi oluşturmanız içindir. |
+| scores | Score | **Evet**  | - | Yazıya daha önceden verilen skorlardır. |
+| selectableEmojiCount | number  | Hayır | 3 | En fazla seçilebilir emoji sayısıdır. |
+| selectableLimitMessage | string  | Hayır | You can select up to {{selectableEmojiCount}} emoji. | selectableEmojiCount değerinden fazla emoji seçilmek istendiğinde ekranda çıkacak olan uyarı mesajıdır. |
+| customClass | string  | Hayır | - | Kendi stil class'ınızı vermenize yarar. |
 
-## Events
-| Name | Parameters | Description |
+## Olaylar
+| İsim | Parametreler | Description |
 | ------------ | ------------ | ------------ | 
-| emojiSelect | $event | To specify the method that will run when the emoji is selected. |
+| emojiSelect | $event | Emoji seçildiği zaman çalışacak olan methodu belirtmek için. |
 
-## Author
+## Paylaşan
 [Mehmet Sert](https://mehmetsert.com.tr "Mehmet Sert")
 - [Github/MehmetSert](https://github.com/MehmetSert "Github/MehmetSert")
 - [Linkedin/mehmet-sert](https://www.linkedin.com/in/mehmet-sert/ "Linkedin/mehmet-sert")

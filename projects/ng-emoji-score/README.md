@@ -7,7 +7,7 @@
 ------------
 
 ## Demo
-[Click here](# "Click here") for a live demo.
+[Click here](https://stackblitz.com/edit/ng-emoji-score?file=src%2Fapp%2Femoji%2Femoji.component.html "Click here") for a live demo.
 
 ## Installation
 You can use npm to install the package.
@@ -102,6 +102,14 @@ Make sure the structure of the array resembles the array shown below;
     { "label": "hosDegil", "value": 49, "selected": false },
     { "label": "kizgin", "value": 14, "selected": false }
   ];
+```
+
+**5.  Method that will work when emoji is selected**
+In your Typescript file;
+```
+  selectEmoji(event) {
+    console.log(event);
+  }
 ```
 
 ## Features
